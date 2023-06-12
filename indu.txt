@@ -1,0 +1,5 @@
+Manu 15.50 40.0
+indu 12.75 37.5
+Swetha 2.0 3.0
+sushma 9.8 6.0
+chandu 19.3 50.0
