@@ -1,0 +1,41 @@
+def calculate_wages(hourly_wage, hours_worked):
+    if hours_worked <= 40:
+        total_wages = hourly_wage * hours_worked
+    else:
+        regular_hours = 40
+        overtime_hours = hours_worked - 40
+        overtime_pay = 1.5 * hourly_wage * overtime_hours
+        total_wages = (hourly_wage * regular_hours) + overtime_pay
+
+    return total_wages
+    # Take input from the user
+filename = r"C:\Users\DELL\Downloads\ASA\indu.txt"
+
+try:
+    # Open the file for reading
+    with open(filename, 'r') as file:
+        # Read the lines from the file
+        lines = file.readlines()
+
+        # Output the report header
+        print("{:<15s}{:<15s}{:<15s}".format("Employee", "Hours Worked", "Wages Paid"))
+        print("-" * 45)
+
+        # Process each line in the file
+        for line in lines:
+            # Split the line into employee information
+            employee_info = line.strip().split()
+
+            # Extract the employee details
+            last_name = employee_info[0]
+            hourly_wage = eval(employee_info[1])
+            hours_worked = eval(employee_info[2])
+
+            # Calculate the wages
+            wages_paid = calculate_wages(hourly_wage, hours_worked)
+
+            # Output the employee's wages
+            print("{:<15s}{:<15.2f}${:<15.2f}".format(last_name, hours_worked, wages_paid))
+
+except FileNotFoundError:
+    print("File not found!")
