@@ -1,0 +1,14 @@
+def calculate_total_distance(initial_height, num_bounces):
+    total_distance = initial_height
+    bounciness_index = 0.6
+
+    for _ in range(num_bounces):
+        distance_to_floor = total_distance
+        distance_bounce = distance_to_floor * bounciness_index
+        total_distance += distance_bounce
+
+    return total_distance
+initial_height = float(input("Enter the initial height of the ball: "))
+num_bounces = int(input("Enter the number of bounces: "))
+total_distance = calculate_total_distance(initial_height, num_bounces)
+print("Total distance traveled by the ball: {:.2f} ft".format(total_distance))
